@@ -1,0 +1,7 @@
+These are credits to sites used as references during the creation of my project
+
+Used this site for help in making registration/login/logout as well as with intial form setup
+    https://www.techwithtim.net/tutorials/django/user-registration/
+
+Used basic Django tutorial for initial setup and use 
+    https://docs.djangoproject.com/en/3.2/intro/tutorial01/
