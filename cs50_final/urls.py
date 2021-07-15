@@ -17,11 +17,13 @@ from django.contrib import admin
 from django.http import HttpResponse
 from django.urls import include, path
 from register import views as reg_views
+from main import views as main_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # My created urlpatterns
     path('', include ('main.urls')),
+    path('mountains/', include('main.urls')),
     # Log in user
     path('', include("django.contrib.auth.urls")),
     # Register user

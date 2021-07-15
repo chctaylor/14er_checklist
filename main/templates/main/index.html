@@ -6,8 +6,16 @@ Index
 
 {% block content %}
 <h1>Home Page</h1>
-<h2>Congrats on logging in!</h2>
-<p>
-    <a href="/logout">Logout</a>
-</p>
+<h2>Congrats on logging in {{request.user.username}}!</h2>
+
+List of things to do on this site:
+<ul>
+    <li>Need to make climbed user specific</li>
+    <li>add mountain class for difficulty?</li>
+    <li>add date climbed to database for user entry</li>
+    <li>need to hide navbar if no user is logged in</li>
+        <ul>
+            <li>change logout to login</li>
+        </ul>
+</ul>
 {% endblock %}

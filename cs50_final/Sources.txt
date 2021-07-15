@@ -5,3 +5,10 @@ Used this site for help in making registration/login/logout as well as with inti
 
 Used basic Django tutorial for initial setup and use 
     https://docs.djangoproject.com/en/3.2/intro/tutorial01/
+
+Used to help display data from database to html
+https://stackoverflow.com/questions/36631419/display-data-from-a-database-in-a-html-page-using-django
+
+Used to help define a navbar class to stop affecting other lists
+https://www.freecodecamp.org/news/how-to-build-a-navigation-bar/
+

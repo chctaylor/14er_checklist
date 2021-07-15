@@ -1,3 +1,7 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'main/style.css' %}">
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,6 +17,17 @@
     </head>
 
     <body>
+        
+        <!-- Navigation Bar-->
+        
+        <nav class="myNav">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/mountains">Mountains</a></li>
+                <li><a href="/admin/">Admin</a></li>
+                <li style="float:right"><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
 
         <div id="content" name="content">
             {% block content %}
