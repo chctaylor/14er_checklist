@@ -12,3 +12,5 @@ https://stackoverflow.com/questions/36631419/display-data-from-a-database-in-a-h
 Used to help define a navbar class to stop affecting other lists
 https://www.freecodecamp.org/news/how-to-build-a-navigation-bar/
 
+Used to help display many to many relation data in html
+https://www.programmersought.com/article/21143847556/

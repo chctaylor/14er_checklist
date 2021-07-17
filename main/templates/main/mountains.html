@@ -15,14 +15,22 @@ Mountains
             <th>Mountain Range</th>
             <th>Climbed</th>
         </tr>
-        {% for mountain in id %}
+        {% for mountain in mountains %}
             <tr>
                 <td>{{ mountain.mountain_name }}</td>
                 <td>{{ mountain.mountain_height }}</td>
                 <td>{{ mountain.mountain_range }}</td>
-                <td>{{ mountain.mountain_climbed }}</td>
+                <td>
+                    <input type="button" value="Climbed" onclick="msg()">
+                </td>
             </tr>
         {% endfor %}
     </table>
 </p>
+
+<script>
+    function msg() {
+        alert("Will eventually add to user specific database")
+    }
+</script>
 {% endblock %}
