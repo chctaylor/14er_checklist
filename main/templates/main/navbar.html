@@ -1,0 +1,18 @@
+
+{% if user.is_authenticated %}
+    <nav class="myNav">
+        <ul>
+            <li><a href="{% url 'main:index' %}">Home</a></li>
+            <li><a href="{% url 'main:climber' request.user.id %}">Climber Profile</a></li>
+            <li><a href="{% url 'main:mountains' %}">Mountains</a></li>
+            <li><a href="/admin/">Admin</a></li>
+            <li style="float:right"><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+{% else %}
+    <nav class="myNav">
+        <ul>
+            <li style="float:right"><a href="/login">Login</a></li>
+        </ul>
+    </nav>
+{% endif %}

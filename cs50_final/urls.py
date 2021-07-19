@@ -23,7 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # My created urlpatterns
     path('', include ('main.urls')),
-    path('mountains/', include('main.urls')),
     # Log in user
     path('', include("django.contrib.auth.urls")),
     # Register user

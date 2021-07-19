@@ -13,10 +13,13 @@ def IndexView(request):
 
 @login_required(login_url='/login')
 def MountainsView(request):
+    
+    climbers = Climber.objects.all()
     # Used to display database on html page
     mountains = Mountain.objects.all()
 
-    return render(request, "main/mountains.html", {'mountains': mountains})
+    context = {'mountains':mountains, 'climbers':climbers}
+    return render(request, "main/mountains.html", context)
 
 @login_required(login_url='/login')
 def ClimberView(request, pk):

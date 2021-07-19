@@ -21,15 +21,30 @@ Mountains
                 <td>{{ mountain.mountain_height }}</td>
                 <td>{{ mountain.mountain_range }}</td>
                 <td>
-                    <input type="button" value="Climbed" onclick="msg()">
+                    <form>
+                        <input type="button" value="Climbed" onclick="update()">
+                    </form>
                 </td>
             </tr>
         {% endfor %}
     </table>
 </p>
 
+<!--Testing url links-->
+
+<p>
+    <a href="{% url 'main:index' %}">Home Page</a>
+</p>
+<p>
+    {% for climber in climbers %}
+        {% if climber.id == request.user.id %}
+            <a href="{% url 'main:climber' climber.id %}">{{ climber.climber_name }}</a>
+        {% endif %}
+    {% endfor %}
+</p>
+
 <script>
-    function msg() {
+    function update() {
         alert("Will eventually add to user specific database")
     }
 </script>

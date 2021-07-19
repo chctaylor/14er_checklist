@@ -9,62 +9,6 @@ Profile
 <h1>This will be the user specific page</h1>
 
 <!-- How to use database of many to many to display data-->
-<table class="mountain">
-    <tr>
-        <td>Test 1: From Climber get their Mountains</td>
-    </tr>
-    <tr>
-        <th>Climber ID</th>
-        <th>Climber Name</th>
-        <th>Mountains Climbed</th>
-    </tr>
-    {% for climber in climbers %}
-        <tr>
-            <td>{{climber.id}}</td>
-            <td>{{climber.climber_name}}</td>
-            <td>
-                {% for mountain in climber.mountains.all %}
-                    {{mountain}}
-                {% endfor %}
-            </td>
-        </tr>
-    {% endfor %}
-</table>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<table class="mountain">
-    <tr>
-        <td>Test 2: From Mountains get their Climbers</td>
-    </tr>
-    <tr>
-        <th>Mountain ID</th>
-        <th>Mountain Name</th>
-        <th>Mountain Climbers</th>
-    </tr>
-    {% for mountain in mountains %}
-        <tr>
-            <td>{{mountain.id}}</td>
-            <td>{{mountain.mountain_name}}</td>
-            <td>
-                {% for climber in mountain.climbers.all %}
-                    {{climber}}
-                {% endfor %}
-            </td>
-        </tr>
-    {% endfor %}
-</table>
-
-<br>
-<br>
-<br>
-<br>
-<br>
 
 <p>Test 3: Use pk to get individual stats</p>
 <h3>Climber Name: {{climber.climber_name}}</h3>
@@ -81,4 +25,8 @@ Profile
             </tr>
         {% endfor %}
 </table>
+
+<p>
+    <a href="{% url 'main:climber' climber.id %}">Test</a>
+</p>
 {% endblock %}

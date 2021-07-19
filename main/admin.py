@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Mountain, Climber
+from .models import Mountain, Climber, Ascents
 
 # Register your models here.
 #class MountainAdmin(admin.ModelAdmin):
@@ -18,3 +18,4 @@ from .models import Mountain, Climber
 # Testing
 admin.site.register(Mountain)
 admin.site.register(Climber)
+admin.site.register(Ascents)
