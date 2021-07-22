@@ -22,3 +22,6 @@ class Climber(models.Model):
 class Ascents(models.Model):
     mountain = models.ForeignKey(Mountain, on_delete=models.CASCADE)
     climber = models.ForeignKey(Climber, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.climber.climber_name

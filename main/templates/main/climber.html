@@ -13,20 +13,35 @@ Profile
 <p>Test 3: Use pk to get individual stats</p>
 <h3>Climber Name: {{climber.climber_name}}</h3>
 <h6>Climber ID: {{climber.id}}</h6>
+
+<form>
+    <a href="{% url 'main:add_ascents' climber.id %}">Add Ascents</a>
+</form>
+
+<p>
+    <h4>Mountains Climbed</h4>
+</p>
+
 <table class="mountain">
     <tr>
-        <th>Mountains Climbed</th>
+        <th>Mountains Name</th>
+        <th>Elevation</th>
+        <th>Range</th>
     </tr>
         {% for mountain in climber.mountains.all %}
             <tr>
                 <td>
-                        {{mountain}}
+                    {{mountain.mountain_name}}
+                </td>
+                <td>
+                    {{mountain.mountain_height}}
+                </td>
+                <td>
+                    {{mountain.mountain_range}}
                 </td>
             </tr>
         {% endfor %}
 </table>
 
-<p>
-    <a href="{% url 'main:climber' climber.id %}">Test</a>
-</p>
+
 {% endblock %}
