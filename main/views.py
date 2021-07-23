@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
+from django.forms import inlineformset_factory
+from django.http import HttpResponse, HttpResponseForbidden
 from django.shortcuts import render, redirect
 
 from .forms import AscentsForm
@@ -30,18 +31,25 @@ def ClimberView(request, pk):
     ascents = climber.mountains.all()
 
     context = {'climber':climber, 'mountains':mountains, 'climbers':climbers, 'ascents':ascents}
+    
     return render(request, "main/climber.html", context)
 
 @login_required(login_url='/login')
 def addAscentsView(request, pk):
     climber = Climber.objects.get(id=pk)
 
-    form = AscentsForm(initial={'climber':climber})
+    AscentFormSet = inlineformset_factory(Climber, Ascents, fields=('mountain',), extra=5, can_delete_extra=False)
+    formset = AscentFormSet(queryset=Ascents.objects.none(), instance=climber)
+
     if request.method == 'POST':
-        form = AscentsForm(request.POST)
-        if form.is_valid():
-            form.save()
+        formset = AscentFormSet(request.POST, instance=climber)
+        if formset.is_valid():
+            formset.save()
             return redirect('main:climber', pk)
 
-    context = {'form':form, 'climber':climber}
-    return render(request, "main/ascents_form.html", context)
+    context = {'formset':formset, 'climber':climber}
+    
+    if not climber.user == request.user:
+        return HttpResponseForbidden("Access Denied: Cannot add ascents for other users")
+    else:
+        return render(request, "main/ascents_form.html", context)
