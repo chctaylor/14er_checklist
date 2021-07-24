@@ -6,46 +6,27 @@ Mountains
 
 {% block content %}
 <h1>Mountain Page</h1>
-<h2>Here you will be able to look up different mountains!</h2>
+<h6>Click on mountain names to view who has climbed them</h6>
+
+<br>
+
 <p>
     <table class="mountain">
         <tr>
             <th>Moutain Name</th>
             <th>Elevation</th>
             <th>Mountain Range</th>
-            <th>Climbed</th>
         </tr>
         {% for mountain in mountains %}
             <tr>
-                <td>{{ mountain.mountain_name }}</td>
+                <td>
+                    <a href="{% url 'main:mt' mountain.mountain_name %}">{{ mountain.mountain_name }}</a>
+                </td>
                 <td>{{ mountain.mountain_height }}</td>
                 <td>{{ mountain.mountain_range }}</td>
-                <td>
-                    <form>
-                        <input type="button" value="Climbed" onclick="update()">
-                    </form>
-                </td>
             </tr>
         {% endfor %}
     </table>
 </p>
 
-<!--Testing url links-->
-
-<p>
-    <a href="{% url 'main:index' %}">Home Page</a>
-</p>
-<p>
-    {% for climber in climbers %}
-        {% if climber.id == request.user.id %}
-            <a href="{% url 'main:climber' climber.id %}">{{ climber.climber_name }}</a>
-        {% endif %}
-    {% endfor %}
-</p>
-
-<script>
-    function update() {
-        alert("Will eventually add to user specific database")
-    }
-</script>
 {% endblock %}

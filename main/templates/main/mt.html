@@ -1,0 +1,35 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}
+Profile
+{% endblock %}
+
+{% block content %}
+
+<h1>
+    {{mountain.mountain_name}} Info Page
+</h1>
+
+<p>
+    <h4>Climbers who have summited {{mountain.mountain_name}}</h4>
+</p>
+<p>
+    <form>
+        <a href="{% url 'main:add_ascents' request.user.climber.id %}">Add Ascent</a>
+    </form>
+</p>
+
+<table class="mountain">
+    <tr>
+        <th>Climbers Name</th>
+    </tr>
+        {% for climber in mountain.climbers.all %}
+            <tr>
+                <td>
+                    <a href="{% url 'main:climber' climber.id %}">{{climber.climber_name}}</a>
+                </td>
+            </tr>
+        {% endfor %}
+</table>
+
+{% endblock %}

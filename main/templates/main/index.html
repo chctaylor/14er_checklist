@@ -8,29 +8,25 @@ Index
 <h1>Home Page</h1>
 <h2>Congrats on logging in {{request.user.first_name}}!</h2>
 
-List of things to do on this site:
+<br>
+
+<h6>List of things to do on this site:</h6>
 <ul>
-    <li>Create new model for climber input</li>
-        <ul>
-            <li>Need to make climbed user specific</li>
-            <li>add date climbed to database for user entry</li>
-        </ul>
+    <li>Style my pages</li>
     <li>add mountain class for difficulty?</li>
-    <li>Change mountain page</li>
+    <li>Quality of life improvements</li>
         <ul>
-            <li>add a radio button/box select button for climbed peaks</li>
-            <li>have button change to remove if mountain has been climbed</li>
-            <li>sort by peaks climbed/not climbed</li>
-            <li>add a total mountains climbed counter</li>
+            <li>Mountain Page</li>
+                <ul>
+                    <li>Add search bar to mountain page</li>
+                    <li>Be able to sort mountains page by name, elevation, range</li>
+                </ul>
+            <li>Add Ascents Page</li>
+                <ul>
+                    <li>Add ascents drop down menu in alphabetical order</li>
+                    <li>initialize mountain from add ascent button on Mt page</li>
+                </ul>
         </ul>
 </ul>
 
-<!--Testing url links-->
-
-<p>
-    <a href="{% url 'main:mountains' %}">Mountains Page</a>
-</p>
-<p>
-
-</p>
 {% endblock %}

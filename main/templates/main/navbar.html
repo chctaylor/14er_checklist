@@ -5,7 +5,10 @@
             <li><a href="{% url 'main:index' %}">Home</a></li>
             <li><a href="{% url 'main:climber' request.user.climber.id %}">Climber Profile</a></li>
             <li><a href="{% url 'main:mountains' %}">Mountains</a></li>
-            <li><a href="/admin/">Admin</a></li>
+            {% if request.user.is_superuser %}
+                <li><a href="/admin/">Admin</a></li>
+            {% endif %}
+            
             <li style="float:right"><a href="/logout">Logout</a></li>
         </ul>
     </nav>

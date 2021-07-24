@@ -13,6 +13,7 @@ def IndexView(request):
 
     return render(request, "main/index.html")
 
+
 @login_required(login_url='/login')
 def MountainsView(request):
     
@@ -22,6 +23,15 @@ def MountainsView(request):
 
     context = {'mountains':mountains, 'climbers':climbers}
     return render(request, "main/mountains.html", context)
+
+
+@login_required(login_url='/login')
+def MtView(request, pk):
+    mountain = Mountain.objects.get(mountain_name=pk)
+
+    context = {'mountain':mountain}
+    return render(request, "main/mt.html", context)
+
 
 @login_required(login_url='/login')
 def ClimberView(request, pk):
@@ -33,6 +43,7 @@ def ClimberView(request, pk):
     context = {'climber':climber, 'mountains':mountains, 'climbers':climbers, 'ascents':ascents}
     
     return render(request, "main/climber.html", context)
+
 
 @login_required(login_url='/login')
 def addAscentsView(request, pk):

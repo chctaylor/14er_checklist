@@ -6,19 +6,19 @@ Profile
 
 {% block content %}
 
-<h1>This will be the user specific page</h1>
+<h1>Climber Profile</h1>
 
 <!-- How to use database of many to many to display data-->
 
-<p>Test 3: Use pk to get individual stats</p>
-<h3>Climber Name: {{climber.climber_name}}</h3>
-<h6>Climber ID: {{climber.id}}</h6>
+<h3>Name: {{climber.climber_name}}</h3>
 
 {% if climber.user == request.user%}
     <form>
         <a href="{% url 'main:add_ascents' climber.id %}">Add Ascents</a>
     </form>
 {% endif %}
+
+<br>
 
 <p>
     <h4>Mountains Climbed</h4>
