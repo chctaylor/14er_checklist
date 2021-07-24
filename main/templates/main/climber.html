@@ -6,11 +6,12 @@ Profile
 
 {% block content %}
 
-<h1>Climber Profile</h1>
+<h1 style="text-decoration: underline; ">Climber Profile</h1>
+<h6>Add more ascents or click on mountain names to view who else has climbed them!</h6>
 
-<!-- How to use database of many to many to display data-->
+<br>
 
-<h3>Name: {{climber.climber_name}}</h3>
+<h2>Name: {{climber.climber_name}}</h2>
 
 {% if climber.user == request.user%}
     <form>
@@ -21,7 +22,7 @@ Profile
 <br>
 
 <p>
-    <h4>Mountains Climbed</h4>
+    <h4 style="text-decoration: underline;">Mountains Climbed</h4>
 </p>
 
 <table class="mountain">
@@ -33,7 +34,7 @@ Profile
         {% for mountain in climber.mountains.all %}
             <tr>
                 <td>
-                    {{mountain.mountain_name}}
+                    <a href="{% url 'main:mt' mountain.mountain_name %}">{{ mountain.mountain_name }}</a>
                 </td>
                 <td>
                     {{mountain.mountain_height}}
