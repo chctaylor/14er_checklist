@@ -5,46 +5,49 @@ Profile
 {% endblock %}
 
 {% block content %}
+<div class="header">
 
-<h1 style="text-decoration: underline; ">Climber Profile</h1>
-<h6>Add more ascents or click on mountain names to view who else has climbed them!</h6>
+    {% if climber.user == request.user%}
+        <h1>Hello {{climber.climber_name}}!</h1>
+        <h6>Here are a list of all your climbs!</h6>
+        <form>
+            <a href="{% url 'main:add_ascents' climber.id %}" style="color: black;">Add Ascents</a>
+        </form>
+    {% else %}
+        <h1>Climber Profile: {{climber.climber_name}}</h1>
+        <h6>List of all mountains that have been climbed by this user</h6>
+    {% endif %}
+
+</div>
 
 <br>
 
-<h2>Name: {{climber.climber_name}}</h2>
+<div class="buffer">
 
-{% if climber.user == request.user%}
-    <form>
-        <a href="{% url 'main:add_ascents' climber.id %}">Add Ascents</a>
-    </form>
-{% endif %}
+    <p>
+        <h4>Total Mountains Climbed: {{climber.mountains.count}}</h4>
+    </p>
 
-<br>
-
-<p>
-    <h4 style="text-decoration: underline;">Mountains Climbed</h4>
-</p>
-
-<table class="mountain">
-    <tr>
-        <th>Mountains Name</th>
-        <th>Elevation</th>
-        <th>Range</th>
-    </tr>
-        {% for mountain in climber.mountains.all %}
-            <tr>
-                <td>
-                    <a href="{% url 'main:mt' mountain.mountain_name %}">{{ mountain.mountain_name }}</a>
-                </td>
-                <td>
-                    {{mountain.mountain_height}}
-                </td>
-                <td>
-                    {{mountain.mountain_range}}
-                </td>
-            </tr>
-        {% endfor %}
-</table>
-
+    <table class="mountain">
+        <tr>
+            <th>Mountains Name</th>
+            <th>Elevation</th>
+            <th>Range</th>
+        </tr>
+            {% for mountain in climber.mountains.all %}
+                <tr>
+                    <td>
+                        <a href="{% url 'main:mt' mountain.mountain_name %}">{{ mountain.mountain_name }}</a>
+                    </td>
+                    <td>
+                        {{mountain.mountain_height}}
+                    </td>
+                    <td>
+                        {{mountain.mountain_range}}
+                    </td>
+                </tr>
+            {% endfor %}
+    </table>
+</div>
 
 {% endblock %}

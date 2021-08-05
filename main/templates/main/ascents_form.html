@@ -6,26 +6,30 @@ Add Mountains
 
 {% block content %}
 
-<h1>
-    Hello, {{climber.climber_name}}!
-</h1>
+<div class="header">
+    <h1>
+        Hello, {{climber.climber_name}}!
+    </h1>
+
+
+    <h6>
+        Add up to five ascents using the drop down menus.
+    </h6>
+
+</div>
 
 <br>
 
-<h4>
-    Add up to five ascents using the drop down menus.
-</h4>
+<div class="buffer">
+    <form action="" method="POST">
 
-<br>
-
-<form action="" method="POST">
-
-    {% csrf_token %}
-    {{ form.management_form }}
-    {{ formset.as_p }}
+        {% csrf_token %}
+        {{ form.management_form }}
+        {{ formset.as_p }}
 
 
-    <input type="submit" name="Add Ascents">
-</form>
+        <input type="submit" name="Add Ascents">
+    </form>
+</div>
 
 {% endblock %}

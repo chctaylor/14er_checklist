@@ -5,28 +5,37 @@ Index
 {% endblock %}
 
 {% block content %}
-<h1>Welcome {{request.user.first_name}}!</h1>
+<div class="header">
+    <h1>Welcome {{request.user.first_name}}!</h1>
+</div>
 
 <br>
 
-<h3>You can now add ascents of Colorados beautiful 14ers to your personal check list</h3>
+<div class="buffer">
 
-<br>
+    <h3>This website was created  and designed so users like you can track which of Colorado's beautiful 14ers you have summited!</h3>
 
-<h4>
-    Use the navigation bar above or the links below to:
-</h4>
-
-<hr>
-
-<ul style="font-size: 20px;">
-    <li>View your personal <a href="{% url 'main:climber' request.user.climber.id %}">climber profile</a> 
-        where you can see all the ascents you have done so far 
-        and <a href="{% url 'main:add_ascents' request.user.climber.id %}">add ascents</a>!</li>
-
+    <hr>
     <br>
 
-    <li>View all the <a href="{% url 'main:mountains' %}">14ers</a> that Colorado has to offer and view who else has reached the summit!</li>
-</ul>
+    <h4>
+        Use the navigation bar above or the links below to:
+    </h4>
+
+    <ul style="font-size: 20px;">
+        <br>
+
+        <li>View your personal <a href="{% url 'main:climber' request.user.climber.id %}">climber profile</a> 
+            where you can see and track all the ascents you have done so far!</li>
+
+        <br>
+
+        <li>View all the <a href="{% url 'main:mountains' %}">14ers</a> that Colorado has to offer and view who else has reached the summit!</li>
+
+        <br>
+
+        <li>You can <a href="{% url 'main:add_ascents' request.user.climber.id %}">add ascents</a> from almost any page you visit!</li>
+    </ul>
+</div>
 
 {% endblock %}

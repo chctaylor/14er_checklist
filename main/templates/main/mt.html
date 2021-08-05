@@ -6,34 +6,40 @@ Profile
 
 {% block content %}
 
-<div style="text-decoration: underline; font-size: 72px;" >
-    {{mountain.mountain_name}}
-</div>
-<h3>
-    Elevation: {{mountain.mountain_height}}
-    <br>
-    Range: {{mountain.mountain_range}}
-</h3>
+<div class="header">
+    <div style="font-size: 72px;" >
+        {{mountain.mountain_name}}
+    </div>
+    <h3>
+        Elevation: {{mountain.mountain_height}}
+        <br>
+        Range: {{mountain.mountain_range}}
+    </h3>
 
 <form>
-    <a href="{% url 'main:add_ascents' request.user.climber.id %}">Add Ascent</a>
+    <a href="{% url 'main:add_ascents' request.user.climber.id %}" style="color: black;">Add Ascent</a>
 </form>
+
+</div>
 
 <br>
 
-<p>
-    <h4>Climbers who have summited {{mountain.mountain_name}}:</h4>
-</p>
+<div class="buffer">
+
+    <p>
+        <h4>Total Summits of {{mountain.mountain_name}}: {{mountain.climbers.count}}</h4>
+    </p>
 
 
-<table class="mountain">
-    {% for climber in mountain.climbers.all %}
-        <tr>
-            <td style="font-size: 24px;">
-                <a href="{% url 'main:climber' climber.id %}">{{climber.climber_name}}</a>
-            </td>
-        </tr>
-    {% endfor %}
-</table>
+    <table class="mountain">
+        {% for climber in mountain.climbers.all %}
+            <tr>
+                <td style="font-size: 24px;">
+                    <a href="{% url 'main:climber' climber.id %}">{{climber.climber_name}}</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
 
 {% endblock %}

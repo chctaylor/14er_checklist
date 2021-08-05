@@ -1,4 +1,5 @@
 /* Navigation bar */
+
 .myNav ul {
     list-style-type: none;
     margin: 0;
@@ -6,6 +7,10 @@
     overflow: hidden;
     background-color: black;
     text-decoration: none;
+    width: 100%;
+    top: 0;
+    position: fixed;
+    
 }
 
 .myNav li {
@@ -36,9 +41,58 @@
     background-color: cornflowerblue;
 }
 
-/* Mountain Table */
+/* Footer */
+
+body {
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 250px;
+}
+  
+.myFooter {
+    position: absolute;
+    bottom: 0;
+    height: 200px;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+.footerText {
+    font-size: 10px;
+}
+
+/* Table Aesthetics */
 
 .mountain td, .mountain th {
-    padding: 15px;
+    padding-right: 45px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     text-align: center;
+}
+
+/* Page Aesthetics */
+
+.header {
+    padding: 20px;
+    background-color: rgb(120, 190, 192);
+    margin-top: 50px;
+}
+
+.buffer {
+    padding-left: 20px;
+}
+
+/* Login/Register Aesthetics */
+
+.signin {
+    padding-top: 150px;
+    text-align: center;
+  
+}
+
+.register {
+    padding: 20px;
+    margin-top: 50px;
 }
