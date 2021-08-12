@@ -15,7 +15,10 @@ def register(response):
                 climber_name = user.first_name,
             )
 
-        return redirect("/login") # need to define path
+            return redirect("/login") # need to define path
+        else:
+            return HttpResponse("Invalid username or password please try again")
+
     else:
         form = RegisterForm()
     
