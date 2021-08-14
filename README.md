@@ -16,14 +16,16 @@ My project is a way for users to add any number of Colorado's 14ers to their own
 
 Under the cs50_final app you will find the settings.py used for the entire project. Within you will find that I added the main app as well as the register app. I also used settings.py to prepare my project for the static files I was going to use.
 
-### Register App:
+##### Register App:
+
     Each user must first register for an account prior to logging into the website. These two componants are handeled by the register app. Within the register app you will find the html templates used for each page. 
 
     In views.py you will find the python code used to render the registration page and to register and create a user profile using the POST request method to complete after the form is submitted. 
 
     In forms.py you will see the fields and their parameters I used for the registration page. I chose to make all the fields required fields in order to get all pertinent information necessary to help create a user to a climber profile.
 
-### Main App:
+##### Main App:
+
     Within the main app you will find a majority of the code used for my project. Templates folder contains all of the html code for the various webpages as well as code for my nav bar and footer. These html files are mainly styled via a css file that can be found under the static folder.
 
     Views.py again contains all of my python code used for the various pages and handles GET/POST request methods. 
